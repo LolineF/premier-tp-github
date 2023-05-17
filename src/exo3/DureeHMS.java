@@ -34,6 +34,7 @@ public class DureeHMS {
             }
             entree.nextLine();              // on vide le tampon d'entrée
         } while (!correct);
+        entree.close();
         return valeur;                      // on renvoie l'entier saisi
     }
 
@@ -56,7 +57,7 @@ public class DureeHMS {
             }
             entree.nextLine();          // on vide le tampon d'entrée
         } while (valeur < 0);
-
+        entree.close();
         return valeur;                  // on renvoie l'entier saisi
     }
 
@@ -85,6 +86,7 @@ public class DureeHMS {
             }
             entree.nextLine();              // on vide le tampon d'entrée
         } while (valeur < inferieur || valeur > superieur);
+        entree.close();
         return valeur; // on renvoie l'entier saisi
     }
 
@@ -125,10 +127,8 @@ public class DureeHMS {
     /**
      * Détermine si les 2 durées argument sont identiques ou pas
      * 
-     * @param d1
-     *            première durée à tester
-     * @param d2
-     *            deuxième durée à tester
+     * @param d1 première durée à tester
+     * @param d2 deuxième durée à tester
      * @return un booléen égal à vrai ssi les 2 durées argument sont égales
      */
     public static boolean egalite(int[] d1, int[] d2) {
@@ -140,10 +140,8 @@ public class DureeHMS {
     /**
      * Détermine si les 2 durées argument sont ordonnées ou pas
      * 
-     * @param d1
-     *            première durée à tester
-     * @param d2
-     *            deuxième durée à tester
+     * @param d1 première durée à tester
+     * @param d2 deuxième durée à tester
      * @return un booléen égal à vrai ssi les 2 durées argument sont ordonnées
      *         ou égales
      */
@@ -162,12 +160,9 @@ public class DureeHMS {
     /**
      * Détermine si les 3 durées argument sont ordonnées ou pas
      * 
-     * @param d1
-     *            première durée à tester
-     * @param d2
-     *            deuxième durée à tester
-     * @param d3
-     *            troisième durée à tester
+     * @param d1 première durée à tester
+     * @param d2 deuxième durée à tester
+     * @param d3 troisième durée à tester
      * @return un booléen égal à vrai ssi les 3 durées argument sont ordonnées
      *         ou égales
      */
@@ -179,12 +174,9 @@ public class DureeHMS {
      * Détermine combien de durées sont différentes parmi les 3 passées en
      * paramètres
      * 
-     * @param d1
-     *            première durée
-     * @param d2
-     *            deuxième durée
-     * @param d3
-     *            troisième durée
+     * @param d1 première durée
+     * @param d2 deuxième durée
+     * @param d3 troisième durée
      * @return un entier compris entre 1 et 3 égal au nombre de durées
      *         différentes passées en paramètre
      */
@@ -210,8 +202,7 @@ public class DureeHMS {
     /**
      * Détermine si un caractère est un chiffre
      * 
-     * @param caractere
-     *            caractère à tester
+     * @param caractere caractère à tester
      * @return un booléen égal à vrai ssi le caractère est un chiffre
      */
     public static boolean estUnChiffre(char caractere) {
@@ -302,73 +293,14 @@ public class DureeHMS {
           /**
      * Affiche une durée exprimée en heures, minutes et secondes
      * 
-     * @param h
-     *            heures
-     * @param m
-     *            minutes
-     * @param s
-     *            secondes
+     * @param h heures
+     * @param m minutes
+     * @param s secondes
      */
     public static void afficher(int h, int m, int s) {
         System.out.println(h + " heure(s) " + m + " minute(s) " + s
                 + " seconde(s) ");
     }
 
-
-    // ////////////////////////////////////////////////////////////////////
-    // Méthodes utilisées pour tester les méthodes précédentes //
-    // ////////////////////////////////////////////////////////////////////
-
-    
-    /** TODO comment method role
-     * 
-     */
-    public static void testDifferente() {
-        int[] d1; // première durée
-        int[] d2; // deuxième durée
-        int[] d3; // troisième
-
-        d1 = DureeHMS.saisirDuree("Saisie de la première durée : ");
-        d2 = DureeHMS.saisirDuree("Saisie de la deuxième durée : ");
-        d3 = DureeHMS.saisirDuree("Saisie de la troisième durée : ");
-
-        System.out.println("Parmi ces 3 durées, "
-                + combienDifferentes(d1, d2, d3) + " sont différentes.");
-
-    }
-
-    /** TODO comment method role
-     * 
-     */
-    public static void testOrdre() {
-        int[] d1; // première durée
-        int[] d2; // deuxième durée
-        int[] d3; // troisième
-
-        d1 = DureeHMS.saisirDuree("Saisie de la première durée : ");
-        d2 = DureeHMS.saisirDuree("Saisie de la deuxième durée : ");
-        d3 = DureeHMS.saisirDuree("Saisie de la troisième durée : ");
-
-        System.out.println("ces 3 durées sont "
-                + (ordre(d1, d2, d3) ? " ordonnées " : " dans le désordre"));
-
-    }
-
-  
-
-    /** TODO comment method role
-     * 
-     */
-    public static void testChaine() {
-        Scanner entree = new Scanner(System.in);
-        String phrase;
-        System.out.print("Entrez une chaine : ");
-        phrase = entree.nextLine();
-        if (estChaineDuree(phrase)) {
-            System.out.println("OK !!");
-        } else {
-            System.out.println("ERREUR !!! ");
-        }
-    }
 
 }
